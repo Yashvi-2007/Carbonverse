@@ -286,118 +286,118 @@ const NgoDashboard = () => {
   const sentToBuyers = transactionHistory.filter(tx => tx.type === "SENT_TO_BUYER");
 
   return (
-    <div className="min-h-screen bg-gray-800 text-green-200 p-4">
+    <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-10xl mx-auto">
         {/* Header */}
-        <header className="flex justify-between items-center mb-8 p-4 bg-gray-900 rounded-lg">
+        <header className="flex justify-between items-center mb-8 p-4 bg-white rounded-lg border border-gray-200">
           <div>
-            <h1 className="text-2xl font-bold">🌍 NGO Dashboard</h1>
-            <p className="text-green-400">Sepolia Testnet - Credit Management</p>
+            <h1 className="text-2xl font-bold text-gray-900">🌍 NGO Dashboard</h1>
+            <p className="text-teal-600">Sepolia Testnet - Credit Management</p>
           </div>
           
           {!account ? (
             <button
               onClick={connectWallet}
-              className="bg-green-600 hover:bg-green-500 text-black px-6 py-2 rounded font-bold"
+              className="bg-teal-800 text-white px-6 py-2 rounded font-bold"
             >
               Connect Wallet
             </button>
           ) : (
             <div className="text-right">
-              <p className="text-sm">Connected: {shortAddress(account)}</p>
-              <p className="text-xs text-green-400">Sepolia Network</p>
+              <p className="text-sm text-gray-700">Connected: {shortAddress(account)}</p>
+              <p className="text-xs text-teal-600">Sepolia Network</p>
             </div>
           )}
         </header>
 
         {/* Analytics Section */}
         <section className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-900 p-6 rounded-lg text-center">
-            <h3 className="text-green-400 text-sm">Total Received</h3>
-            <p className="text-2xl font-bold">{totalReceived} {tokenSymbol}</p>
-            <p className="text-xs text-green-300">From Regulator</p>
+          <div className="bg-gray-50 p-6 rounded-lg text-center border border-gray-200">
+            <h3 className="text-teal-600 text-sm">Total Received</h3>
+            <p className="text-2xl font-bold text-gray-900">{totalReceived} {tokenSymbol}</p>
+            <p className="text-xs text-teal-500">From Regulator</p>
           </div>
           
-          <div className="bg-gray-900 p-6 rounded-lg text-center">
-            <h3 className="text-green-400 text-sm">Total Sent</h3>
-            <p className="text-2xl font-bold">{totalSent} {tokenSymbol}</p>
-            <p className="text-xs text-green-300">To Buyers</p>
+          <div className="bg-gray-50 p-6 rounded-lg text-center border border-gray-200">
+            <h3 className="text-teal-600 text-sm">Total Sent</h3>
+            <p className="text-2xl font-bold text-gray-900">{totalSent} {tokenSymbol}</p>
+            <p className="text-xs text-teal-500">To Buyers</p>
           </div>
           
-          <div className="bg-gray-900 p-6 rounded-lg text-center">
-            <h3 className="text-green-400 text-sm">Net Balance</h3>
-            <p className="text-2xl font-bold">{netBalance} {tokenSymbol}</p>
-            <p className="text-xs text-green-300">Available Credits</p>
+          <div className="bg-gray-50 p-6 rounded-lg text-center border border-gray-200">
+            <h3 className="text-teal-600 text-sm">Net Balance</h3>
+            <p className="text-2xl font-bold text-gray-900">{netBalance} {tokenSymbol}</p>
+            <p className="text-xs text-teal-500">Available Credits</p>
           </div>
         </section>
 
         {/* Wallet Info Section */}
         <section className="grid md:grid-cols-2 gap-6 mb-8">
           {/* NGO Wallet Info */}
-          <div className="bg-gray-900 p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">NGO Wallet</h2>
+          <div className="bg-white p-6 rounded-lg border border-gray-200">
+            <h2 className="text-xl font-bold mb-4 text-gray-900">NGO Wallet</h2>
             
             <div className="space-y-3">
               <div>
-                <label className="text-green-400 text-sm">Force</label>
-                <p className="font-mono text-sm break-all">{NGO_WALLET}</p>
+                <label className="text-teal-600 text-sm">Force</label>
+                <p className="font-mono text-sm break-all text-gray-700">{NGO_WALLET}</p>
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-green-400 text-sm">ETH Balance</label>
-                  <p className="text-lg font-bold">{parseFloat(ethBalance).toFixed(6)} ETH</p>
+                  <label className="text-teal-600 text-sm">ETH Balance</label>
+                  <p className="text-lg font-bold text-gray-900">{parseFloat(ethBalance).toFixed(6)} ETH</p>
                 </div>
                 
                 <div>
-                  <label className="text-green-400 text-sm">Token Balance</label>
-                  <p className="text-lg font-bold">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
+                  <label className="text-teal-600 text-sm">Token Balance</label>
+                  <p className="text-lg font-bold text-gray-900">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
                 </div>
               </div>
 
               <div>
-                <label className="text-green-400 text-sm">Estimated Gas Fee</label>
-                <p className="text-sm">{parseFloat(gasFee).toFixed(6)} ETH</p>
+                <label className="text-teal-600 text-sm">Estimated Gas Fee</label>
+                <p className="text-sm text-gray-700">{parseFloat(gasFee).toFixed(6)} ETH</p>
               </div>
 
               <div>
-                <label className="text-green-400 text-sm">Contract</label>
-                <p className="font-mono text-xs break-all">{CONTRACT_ADDRESS}</p>
+                <label className="text-teal-600 text-sm">Contract</label>
+                <p className="font-mono text-xs break-all text-gray-700">{CONTRACT_ADDRESS}</p>
               </div>
             </div>
           </div>
 
           {/* Transfer Section */}
-          <div className="bg-gray-900 p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Transfer Credits to Buyer</h2>
+          <div className="bg-white p-6 rounded-lg border border-gray-200">
+            <h2 className="text-xl font-bold mb-4 text-gray-900">Transfer Credits to Buyer</h2>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-green-400 text-sm mb-2">Buyer Address</label>
+                <label className="block text-teal-600 text-sm mb-2">Buyer Address</label>
                 <input
                   type="text"
                   value={buyerAddress}
                   onChange={(e) => setBuyerAddress(e.target.value)}
                   placeholder="0x..."
-                  className="w-full p-3 bg-black border border-gray-700 rounded text-white"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded text-gray-800"
                 />
               </div>
               
               <div>
-                <label className="block text-green-400 text-sm mb-2">Amount ({tokenSymbol})</label>
+                <label className="block text-teal-600 text-sm mb-2">Amount ({tokenSymbol})</label>
                 <input
                   type="number"
                   value={transferAmount}
                   onChange={(e) => setTransferAmount(e.target.value)}
                   placeholder="0.00"
-                  className="w-full p-3 bg-black border border-gray-700 rounded text-white"
+                  className="w-full p-3 bg-gray-50 border border-gray-200 rounded text-gray-800"
                 />
               </div>
               
               <button
                 onClick={transferToBuyer}
                 disabled={!account || !buyerAddress || !transferAmount}
-                className="w-full bg-green-600 hover:bg-green-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-black py-3 rounded font-bold"
+                className="w-full bg-teal-800 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded font-bold"
               >
                 Transfer to Buyer
               </button>
@@ -409,64 +409,64 @@ const NgoDashboard = () => {
         <section className="mb-8">
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Credits Received from Regulator */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h2 className="text-xl font-bold mb-4">📥 Received from Regulator</h2>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h2 className="text-xl font-bold mb-4 text-gray-900">📥 Received from Regulator</h2>
               
               {receivedFromRegulator.length === 0 ? (
-                <p className="text-green-400 text-center py-8">No credits received from regulator yet</p>
+                <p className="text-teal-600 text-center py-8">No credits received from regulator yet</p>
               ) : (
                 <div className="overflow-x-auto max-h-80">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-gray-700">
-                        <th className="text-left p-2">From</th>
-                        <th className="text-left p-2">Amount</th>
-                        <th className="text-left p-2">Block</th>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left p-2 text-gray-700">From</th>
+                        <th className="text-left p-2 text-gray-700">Amount</th>
+                        <th className="text-left p-2 text-gray-700">Block</th>
                       </tr>
                     </thead>
                     <tbody>
                       {receivedFromRegulator.map((tx, index) => (
-                        <tr key={index} className="border-b border-gray-800">
-                          <td className="p-2 font-mono text-sm">{shortAddress(tx.from)}</td>
-                          <td className="p-2 font-bold text-green-300">{tx.amount} {tx.symbol}</td>
-                          <td className="p-2 text-sm">{tx.block}</td>
+                        <tr key={index} className="border-b border-gray-100">
+                          <td className="p-2 font-mono text-sm text-gray-700">{shortAddress(tx.from)}</td>
+                          <td className="p-2 font-bold text-teal-700">{tx.amount} {tx.symbol}</td>
+                          <td className="p-2 text-sm text-gray-700">{tx.block}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               )}
-              <div className="mt-3 p-2 bg-black rounded">
-                <p className="text-sm text-green-400">Total Received: <span className="font-bold">{totalReceived} {tokenSymbol}</span></p>
+              <div className="mt-3 p-2 bg-gray-50 rounded border border-gray-200">
+                <p className="text-sm text-teal-600">Total Received: <span className="font-bold text-gray-900">{totalReceived} {tokenSymbol}</span></p>
               </div>
             </div>
 
             {/* Credits Sent to Buyers */}
-            <div className="bg-gray-900 p-6 rounded-lg">
-              <h2 className="text-xl font-bold mb-4">📤 Sent to Buyers</h2>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h2 className="text-xl font-bold mb-4 text-gray-900">📤 Sent to Buyers</h2>
               
               {sentToBuyers.length === 0 ? (
-                <p className="text-green-400 text-center py-8">No credits sent to buyers yet</p>
+                <p className="text-teal-600 text-center py-8">No credits sent to buyers yet</p>
               ) : (
                 <div className="overflow-x-auto max-h-80">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-gray-700">
-                        <th className="text-left p-2">To</th>
-                        <th className="text-left p-2">Amount</th>
-                        <th className="text-left p-2">Block</th>
-                        <th className="text-left p-2">Status</th>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left p-2 text-gray-700">To</th>
+                        <th className="text-left p-2 text-gray-700">Amount</th>
+                        <th className="text-left p-2 text-gray-700">Block</th>
+                        <th className="text-left p-2 text-gray-700">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       {sentToBuyers.map((tx, index) => (
-                        <tr key={index} className="border-b border-gray-800">
-                          <td className="p-2 font-mono text-sm">{shortAddress(tx.to)}</td>
-                          <td className="p-2 font-bold text-red-300">{tx.amount} {tx.symbol}</td>
-                          <td className="p-2 text-sm">{tx.block}</td>
+                        <tr key={index} className="border-b border-gray-100">
+                          <td className="p-2 font-mono text-sm text-gray-700">{shortAddress(tx.to)}</td>
+                          <td className="p-2 font-bold text-teal-700">{tx.amount} {tx.symbol}</td>
+                          <td className="p-2 text-sm text-gray-700">{tx.block}</td>
                           <td className="p-2">
                             <span className={`px-2 py-1 rounded text-xs ${
-                              tx.status === "Confirmed" ? "bg-green-800 text-green-200" : "bg-yellow-800 text-yellow-200"
+                              tx.status === "Confirmed" ? "bg-teal-100 text-teal-800" : "bg-yellow-100 text-yellow-800"
                             }`}>
                               {tx.status}
                             </span>
@@ -477,63 +477,63 @@ const NgoDashboard = () => {
                   </table>
                 </div>
               )}
-              <div className="mt-3 p-2 bg-black rounded">
-                <p className="text-sm text-green-400">Total Sent: <span className="font-bold">{totalSent} {tokenSymbol}</span></p>
+              <div className="mt-3 p-2 bg-gray-50 rounded border border-gray-200">
+                <p className="text-sm text-teal-600">Total Sent: <span className="font-bold text-gray-900">{totalSent} {tokenSymbol}</span></p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Complete Transaction History */}
-        <section className="bg-gray-900 p-6 rounded-lg">
+        <section className="bg-white p-6 rounded-lg border border-gray-200">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">📋 Complete Transaction History</h2>
-            <span className="text-green-400">
+            <h2 className="text-xl font-bold text-gray-900">📋 Complete Transaction History</h2>
+            <span className="text-teal-600">
               {transactionHistory.length} transactions total
             </span>
           </div>
           
           {transactionHistory.length === 0 ? (
-            <p className="text-green-400 text-center py-8">No transactions yet</p>
+            <p className="text-teal-600 text-center py-8">No transactions yet</p>
           ) : (
             <div className="overflow-x-auto max-h-96">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-700">
-                    <th className="text-left p-3">Type</th>
-                    <th className="text-left p-3">From/To</th>
-                    <th className="text-left p-3">Amount</th>
-                    <th className="text-left p-3">Block</th>
-                    <th className="text-left p-3">Status</th>
+                  <tr className="border-b border-gray-200">
+                    <th className="text-left p-3 text-gray-700">Type</th>
+                    <th className="text-left p-3 text-gray-700">From/To</th>
+                    <th className="text-left p-3 text-gray-700">Amount</th>
+                    <th className="text-left p-3 text-gray-700">Block</th>
+                    <th className="text-left p-3 text-gray-700">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {transactionHistory.map((tx, index) => (
-                    <tr key={index} className="border-b border-gray-800 hover:bg-gray-800">
+                    <tr key={index} className="border-b border-gray-100">
                       <td className="p-3">
                         <span className={`px-2 py-1 rounded text-xs ${
-                          tx.type === "RECEIVED_FROM_REGULATOR" ? "bg-green-800 text-green-200" : 
-                          tx.type === "SENT_TO_BUYER" ? "bg-blue-800 text-blue-200" : 
-                          "bg-gray-700 text-gray-200"
+                          tx.type === "RECEIVED_FROM_REGULATOR" ? "bg-teal-100 text-teal-800" : 
+                          tx.type === "SENT_TO_BUYER" ? "bg-teal-100 text-teal-800" : 
+                          "bg-gray-100 text-gray-800"
                         }`}>
                           {tx.type.replace(/_/g, ' ')}
                         </span>
                       </td>
-                      <td className="p-3 font-mono text-sm">
+                      <td className="p-3 font-mono text-sm text-gray-700">
                         {tx.direction === "incoming" ? 
                           `From: ${shortAddress(tx.from)}` : 
                           `To: ${shortAddress(tx.to)}`
                         }
                       </td>
                       <td className="p-3 font-bold">
-                        <span className={tx.direction === "incoming" ? "text-green-300" : "text-red-300"}>
+                        <span className={tx.direction === "incoming" ? "text-teal-700" : "text-teal-700"}>
                           {tx.direction === "incoming" ? "+" : "-"}{tx.amount} {tx.symbol}
                         </span>
                       </td>
-                      <td className="p-3 text-sm">{tx.block}</td>
+                      <td className="p-3 text-sm text-gray-700">{tx.block}</td>
                       <td className="p-3">
                         <span className={`px-2 py-1 rounded text-xs ${
-                          tx.status === "Confirmed" ? "bg-green-800 text-green-200" : "bg-yellow-800 text-yellow-200"
+                          tx.status === "Confirmed" ? "bg-teal-100 text-teal-800" : "bg-yellow-100 text-yellow-800"
                         }`}>
                           {tx.status}
                         </span>
