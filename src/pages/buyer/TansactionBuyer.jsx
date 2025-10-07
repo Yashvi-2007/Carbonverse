@@ -359,16 +359,16 @@ const BuyerDashboard = () => {
   const shortAddress = (addr) => addr ? `${addr.slice(0, 6)}...${addr.slice(-4)}` : "";
 
   return (
-    <div className="min-h-screen bg-gray-800 text-green-200 p-4">
+    <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-8xl mx-auto">
         {/* Error Display */}
         {error && (
-          <div className="mb-4 p-4 bg-red-900 border border-red-700 rounded-lg">
+          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
             <div className="flex justify-between items-center">
-              <span className="text-red-200">{error}</span>
+              <span className="text-red-700">{error}</span>
               <button 
                 onClick={() => setError("")}
-                className="text-red-300 hover:text-white"
+                className="text-red-500 hover:text-red-700"
               >
                 ×
               </button>
@@ -377,36 +377,36 @@ const BuyerDashboard = () => {
         )}
 
         {/* Header */}
-        <header className="flex justify-between items-center mb-8 p-4 bg-gray-900 rounded-lg">
+        <header className="flex justify-between items-center mb-8 p-4 bg-white rounded-lg border border-gray-200">
           <div>
-            <h1 className="text-2xl font-bold">💰 Buyer Dashboard</h1>
-            <p className="text-green-400">Sepolia Testnet - Carbon Credit Management</p>
+            <h1 className="text-2xl font-bold text-gray-900">💰 Buyer Dashboard</h1>
+            <p className="text-teal-600">Sepolia Testnet - Carbon Credit Management</p>
           </div>
           
           {!account ? (
             <div className="text-center">
               <button
                 onClick={connectWallet}
-                className="bg-green-600 hover:bg-green-500 text-black px-6 py-2 rounded font-bold"
+                className="bg-teal-800 text-white px-6 py-2 rounded font-bold"
               >
                 {isMetaMaskInstalled() ? "Connect Wallet" : "Install MetaMask"}
               </button>
             </div>
           ) : (
             <div className="text-right">
-              <p className="text-sm">Buyer: {shortAddress(account)}</p>
-              <p className="text-xs text-green-400">Carbon Credit Holder</p>
+              <p className="text-sm text-gray-700">Buyer: {shortAddress(account)}</p>
+              <p className="text-xs text-teal-600">Carbon Credit Holder</p>
             </div>
           )}
         </header>
 
         {/* Show installation instructions if MetaMask not installed */}
         {!isMetaMaskInstalled() && !account && (
-          <div className="bg-yellow-900 border border-yellow-700 p-6 rounded-lg mb-6">
-            <h2 className="text-xl font-bold mb-2">📋 Installation Required</h2>
-            <p className="mb-4">To use this dashboard, you need to install MetaMask:</p>
-            <ol className="list-decimal list-inside space-y-2">
-              <li>Go to <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer" className="text-blue-300 underline">MetaMask download page</a></li>
+          <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-lg mb-6">
+            <h2 className="text-xl font-bold mb-2 text-gray-900">📋 Installation Required</h2>
+            <p className="mb-4 text-gray-700">To use this dashboard, you need to install MetaMask:</p>
+            <ol className="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Go to <a href="https://metamask.io/download.html" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline">MetaMask download page</a></li>
               <li>Install the extension for your browser</li>
               <li>Create a new wallet or import existing one</li>
               <li>Switch to Sepolia Test Network</li>
@@ -420,90 +420,90 @@ const BuyerDashboard = () => {
           <>
             {/* Analytics Section */}
             <section className="grid md:grid-cols-4 gap-6 mb-8">
-              <div className="bg-gray-900 p-6 rounded-lg">
-                <h3 className="text-green-400 text-sm">Current Balance</h3>
-                <p className="text-2xl font-bold">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
-                <p className="text-xs text-green-300">Available Credits</p>
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 className="text-teal-600 text-sm">Current Balance</h3>
+                <p className="text-2xl font-bold text-gray-900">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
+                <p className="text-xs text-teal-500">Available Credits</p>
               </div>
               
-              <div className="bg-gray-900 p-6 rounded-lg">
-                <h3 className="text-green-400 text-sm">Total Received</h3>
-                <p className="text-2xl font-bold">{totalReceived} {tokenSymbol}</p>
-                <p className="text-xs text-green-300">From NGOs</p>
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 className="text-teal-600 text-sm">Total Received</h3>
+                <p className="text-2xl font-bold text-gray-900">{totalReceived} {tokenSymbol}</p>
+                <p className="text-xs text-teal-500">From NGOs</p>
               </div>
               
-              <div className="bg-gray-900 p-6 rounded-lg">
-                <h3 className="text-green-400 text-sm">Total Burned</h3>
-                <p className="text-2xl font-bold">{totalBurned} {tokenSymbol}</p>
-                <p className="text-xs text-green-300">Retired Credits</p>
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 className="text-teal-600 text-sm">Total Burned</h3>
+                <p className="text-2xl font-bold text-gray-900">{totalBurned} {tokenSymbol}</p>
+                <p className="text-xs text-teal-500">Retired Credits</p>
               </div>
               
-              <div className="bg-gray-900 p-6 rounded-lg">
-                <h3 className="text-green-400 text-sm">Total Transferred</h3>
-                <p className="text-2xl font-bold">{totalTransferred} {tokenSymbol}</p>
-                <p className="text-xs text-green-300">Sent to Others</p>
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 className="text-teal-600 text-sm">Total Transferred</h3>
+                <p className="text-2xl font-bold text-gray-900">{totalTransferred} {tokenSymbol}</p>
+                <p className="text-xs text-teal-500">Sent to Others</p>
               </div>
             </section>
 
             {/* Wallet Info and Export Section */}
             <section className="grid lg:grid-cols-3 gap-6 mb-8">
               {/* Wallet Info */}
-              <div className="bg-gray-900 p-6 rounded-lg lg:col-span-1">
-                <h2 className="text-xl font-bold mb-4">👤 Buyer Wallet</h2>
+              <div className="bg-white p-6 rounded-lg border border-gray-200 lg:col-span-1">
+                <h2 className="text-xl font-bold mb-4 text-gray-900">👤 Buyer Wallet</h2>
                 
                 <div className="space-y-3">
                   <div>
-                    <label className="text-green-400 text-sm">Address</label>
-                    <p className="font-mono text-sm break-all">{account}</p>
+                    <label className="text-teal-600 text-sm">Address</label>
+                    <p className="font-mono text-sm break-all text-gray-700">{account}</p>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-green-400 text-sm">ETH Balance</label>
-                      <p className="text-lg font-bold">{parseFloat(ethBalance).toFixed(6)} ETH</p>
+                      <label className="text-teal-600 text-sm">ETH Balance</label>
+                      <p className="text-lg font-bold text-gray-900">{parseFloat(ethBalance).toFixed(6)} ETH</p>
                     </div>
                     
                     <div>
-                      <label className="text-green-400 text-sm">Token Balance</label>
-                      <p className="text-lg font-bold">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
+                      <label className="text-teal-600 text-sm">Token Balance</label>
+                      <p className="text-lg font-bold text-gray-900">{parseFloat(tokenBalance).toFixed(4)} {tokenSymbol}</p>
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-green-400 text-sm">Gas Fee Estimate</label>
-                    <p className="text-sm">{parseFloat(gasFee).toFixed(6)} ETH</p>
+                    <label className="text-teal-600 text-sm">Gas Fee Estimate</label>
+                    <p className="text-sm text-gray-700">{parseFloat(gasFee).toFixed(6)} ETH</p>
                   </div>
 
                   <div>
-                    <label className="text-green-400 text-sm">Contract</label>
-                    <p className="font-mono text-xs break-all">{CONTRACT_ADDRESS}</p>
+                    <label className="text-teal-600 text-sm">Contract</label>
+                    <p className="font-mono text-xs break-all text-gray-700">{CONTRACT_ADDRESS}</p>
                   </div>
                 </div>
               </div>
 
               {/* Export Controls */}
-              <div className="bg-gray-900 p-6 rounded-lg lg:col-span-2">
-                <h2 className="text-xl font-bold mb-4">📊 Analytics & Export</h2>
+              <div className="bg-white p-6 rounded-lg border border-gray-200 lg:col-span-2">
+                <h2 className="text-xl font-bold mb-4 text-gray-900">📊 Analytics & Export</h2>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-green-400 text-lg mb-3">Credit Summary</h3>
+                    <h3 className="text-teal-600 text-lg mb-3">Credit Summary</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Net Credits:</span>
-                        <span className="font-bold">{(parseFloat(totalReceived) - parseFloat(totalBurned) - parseFloat(totalTransferred)).toFixed(4)} {tokenSymbol}</span>
+                        <span className="text-gray-700">Net Credits:</span>
+                        <span className="font-bold text-gray-900">{(parseFloat(totalReceived) - parseFloat(totalBurned) - parseFloat(totalTransferred)).toFixed(4)} {tokenSymbol}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Transaction Count:</span>
-                        <span className="font-bold">{transactionHistory.length}</span>
+                        <span className="text-gray-700">Transaction Count:</span>
+                        <span className="font-bold text-gray-900">{transactionHistory.length}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Received Transactions:</span>
-                        <span className="font-bold">{transactionHistory.filter(tx => tx.type === "RECEIVED").length}</span>
+                        <span className="text-gray-700">Received Transactions:</span>
+                        <span className="font-bold text-gray-900">{transactionHistory.filter(tx => tx.type === "RECEIVED").length}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Active Since:</span>
-                        <span className="font-bold">
+                        <span className="text-gray-700">Active Since:</span>
+                        <span className="font-bold text-gray-900">
                           {transactionHistory.length > 0 
                             ? transactionHistory[transactionHistory.length - 1].date 
                             : "No activity"
@@ -514,12 +514,12 @@ const BuyerDashboard = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-green-400 text-lg mb-3">Export Data</h3>
+                    <h3 className="text-teal-600 text-lg mb-3">Export Data</h3>
                     <div className="space-y-3">
                       <button
                         onClick={exportToCSV}
                         disabled={transactionHistory.length === 0}
-                        className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-gray-600 text-white py-3 rounded font-bold"
+                        className="w-full bg-teal-800 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded font-bold"
                       >
                         📥 Export to CSV
                       </button>
@@ -527,14 +527,14 @@ const BuyerDashboard = () => {
                       <button
                         onClick={exportToPDF}
                         disabled={transactionHistory.length === 0}
-                        className="w-full bg-red-600 hover:bg-red-500 disabled:bg-gray-600 text-white py-3 rounded font-bold"
+                        className="w-full bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded font-bold"
                       >
                         📄 Generate PDF Report
                       </button>
                       
                       <button
                         onClick={refreshData}
-                        className="w-full bg-green-600 hover:bg-green-500 text-black py-3 rounded font-bold"
+                        className="w-full bg-gray-100 text-gray-700 py-3 rounded font-bold border border-gray-200"
                       >
                         🔄 Refresh Data
                       </button>
@@ -545,51 +545,51 @@ const BuyerDashboard = () => {
             </section>
 
             {/* Transaction History */}
-            <section className="bg-gray-900 p-6 rounded-lg">
+            <section className="bg-white p-6 rounded-lg border border-gray-200">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">📋 Transaction History</h2>
-                <span className="text-green-400">
+                <h2 className="text-xl font-bold text-gray-900">📋 Transaction History</h2>
+                <span className="text-teal-600">
                   {transactionHistory.length} transactions found
                 </span>
               </div>
               
               {transactionHistory.length === 0 ? (
-                <p className="text-green-400 text-center py-8">No transactions yet. Credits received from NGOs will appear here.</p>
+                <p className="text-teal-600 text-center py-8">No transactions yet. Credits received from NGOs will appear here.</p>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead>
-                      <tr className="border-b border-gray-700">
-                        <th className="text-left p-3">Type</th>
-                        <th className="text-left p-3">From</th>
-                        <th className="text-left p-3">To</th>
-                        <th className="text-left p-3">Amount</th>
-                        <th className="text-left p-3">Block</th>
-                        <th className="text-left p-3">Date</th>
-                        <th className="text-left p-3">Status</th>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left p-3 text-gray-700">Type</th>
+                        <th className="text-left p-3 text-gray-700">From</th>
+                        <th className="text-left p-3 text-gray-700">To</th>
+                        <th className="text-left p-3 text-gray-700">Amount</th>
+                        <th className="text-left p-3 text-gray-700">Block</th>
+                        <th className="text-left p-3 text-gray-700">Date</th>
+                        <th className="text-left p-3 text-gray-700">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       {transactionHistory.map((tx, index) => (
-                        <tr key={index} className="border-b border-gray-800 hover:bg-gray-800">
+                        <tr key={index} className="border-b border-gray-100">
                           <td className="p-3">
                             <span className={`px-2 py-1 rounded text-xs ${
-                              tx.type === "RECEIVED" ? "bg-green-800 text-green-200" : 
-                              tx.type === "BURNED" ? "bg-red-800 text-red-200" : 
-                              "bg-blue-800 text-blue-200"
+                              tx.type === "RECEIVED" ? "bg-teal-100 text-teal-800" : 
+                              tx.type === "BURNED" ? "bg-red-100 text-red-800" : 
+                              "bg-teal-100 text-teal-800"
                             }`}>
                               {tx.type}
                             </span>
                           </td>
-                          <td className="p-3 font-mono text-sm">{shortAddress(tx.from)}</td>
-                          <td className="p-3 font-mono text-sm">{shortAddress(tx.to)}</td>
-                          <td className="p-3 font-bold">
+                          <td className="p-3 font-mono text-sm text-gray-700">{shortAddress(tx.from)}</td>
+                          <td className="p-3 font-mono text-sm text-gray-700">{shortAddress(tx.to)}</td>
+                          <td className="p-3 font-bold text-gray-900">
                             {tx.amount} {tx.symbol}
                           </td>
-                          <td className="p-3 text-sm">{tx.block}</td>
-                          <td className="p-3 text-sm">{tx.date}</td>
+                          <td className="p-3 text-sm text-gray-700">{tx.block}</td>
+                          <td className="p-3 text-sm text-gray-700">{tx.date}</td>
                           <td className="p-3">
-                            <span className="px-2 py-1 rounded text-xs bg-green-800 text-green-200">
+                            <span className="px-2 py-1 rounded text-xs bg-teal-100 text-teal-800">
                               {tx.status}
                             </span>
                           </td>
@@ -604,12 +604,12 @@ const BuyerDashboard = () => {
         ) : (
           // Show connection prompt if MetaMask is installed but not connected
           isMetaMaskInstalled() && (
-            <div className="bg-gray-900 p-8 rounded-lg text-center">
-              <h2 className="text-xl font-bold mb-4">🔐 Connect Your Wallet</h2>
-              <p className="mb-4">Connect your wallet to view your carbon credit balance and transaction history.</p>
+            <div className="bg-white p-8 rounded-lg text-center border border-gray-200">
+              <h2 className="text-xl font-bold mb-4 text-gray-900">🔐 Connect Your Wallet</h2>
+              <p className="mb-4 text-gray-700">Connect your wallet to view your carbon credit balance and transaction history.</p>
               <button
                 onClick={connectWallet}
-                className="bg-green-600 hover:bg-green-500 text-black px-8 py-3 rounded font-bold text-lg"
+                className="bg-teal-800 text-white px-8 py-3 rounded font-bold text-lg"
               >
                 Connect Wallet
               </button>
